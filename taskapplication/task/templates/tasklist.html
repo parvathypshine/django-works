@@ -3,6 +3,29 @@
 <div class="container">
     <h2>{{request.user}}</h2>
     <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            {%if messages%}
+                   {%for msg in messages%}
+                       {% if msg.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                       <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>{{msg}}</strong> 
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                      </div> 
+                       {% endif %}
+
+                       {% if msg.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                       <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>{{msg}}</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                      </div> 
+                       {% endif %}
+                    {%endfor%}
+                {%endif%}
+        </div>
+        <div class="col-4"></div>
+    </div>
+    <div class="row">
         <div class="col-2"></div>
         <div class="col-8">
             <table class="table">
@@ -19,7 +42,7 @@
                     <td>{{task.task_name}}</td>
                     <td>{{task.user}}</td>
                     <td><a href="{%url 'todo-detail' task.id %}" class="btn btn-info">Detail</a>
-                        <a href="" class="btn btn-warning">Edit</a>
+                        <a href="{%url 'todo-update' task.id%}" class="btn btn-warning">Edit</a>
                         <a href="{%url 'todo-delete' task.id %}" class="btn btn-danger">Delete</a></td>
                 </tr>
                 {%endfor%}
