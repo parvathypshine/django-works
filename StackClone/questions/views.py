@@ -98,3 +98,10 @@ def upvote_view(request,*args,**kwargs):
     ans.upvote.add(request.user)
     ans.save()
     return redirect("index")
+
+
+decs
+def myquestions_view(self,request,*args,**kwargs):
+    Questions.objects.filter(user=request.user)
+    return redirect("index")
+    

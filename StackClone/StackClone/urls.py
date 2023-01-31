@@ -27,6 +27,7 @@ urlpatterns = [
     path("questions/answers/add/<int:id>",views.add_answer,name="addanswer"),
     path("answers/<int:id>/upvote",views.upvote_view,name="upvote"),
     path("answers/<int:id>/remove",views.remove_answer,name="remove-answer"),
-    path("index/logout",views.signout_view,name="logout")
+    path("index/logout",views.signout_view,name="logout"),
+    path("index/myquestions",views.myquestions_view,name="myquestions")
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 # add ques errorcheck

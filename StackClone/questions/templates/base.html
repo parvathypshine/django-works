@@ -21,7 +21,23 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">My Questions</a></li>
+                                            
+                        
+                        <li class="nav-item"><div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle bg-dark " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="nav-link" href="#">My Questions</a> 
+                            </button>
+                            
+                                {%for q in questions%}
+                                <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{%url 'myquestions' %}"></a></li>
+                            </ul>
+                                {%endfor%}
+                              
+                              
+                           
+                          </div></li>
+                       
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="{%url 'logout' %}">Log Out</a></li>
                     </ul>
                 </div>
